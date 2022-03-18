@@ -99,6 +99,7 @@ function getCss(fontSize: string) {
         font-style: normal;
         color: white;
         line-height: 0.6;
+        white-space: normal;
         inset: 0%;
         margin: auto;
         padding: 50px;
