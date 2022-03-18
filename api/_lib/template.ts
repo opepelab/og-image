@@ -99,12 +99,12 @@ function getCss(fontSize: string) {
         font-style: normal;
         color: white;
         line-height: 0.6;
-        white-space: normal;
-        inset: 0%;
-        margin: auto;
         padding: 50px;
-        width: fit-content;
-        height: fit-content;
+        left:  0%;
+        right: 0%;
+        top: 0;
+        bottom: 0;
+        margin: auto;
     }`;
 }
 
