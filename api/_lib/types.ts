@@ -8,7 +8,4 @@ export interface ParsedRequest {
   theme: Theme;
   md: boolean;
   fontSize: string;
-  images: string[];
-  widths: string[];
-  heights: string[];
 }

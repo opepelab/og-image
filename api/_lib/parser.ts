@@ -32,25 +32,13 @@ export function parseRequest(req: IncomingMessage) {
   const parsedRequest: ParsedRequest = {
     fileType: extension === "jpeg" ? extension : "png",
     text: decodeURIComponent(text),
-    theme: ["none", "dark", "light"].includes(theme || "dark")
-      ? (theme as Theme)
-      : "dark",
+    // theme: ["none", "dark", "light"].includes(theme || "dark")
+    //   ? (theme as Theme)
+    //   : "dark",
+    theme: theme === "dark" ? "dark" : "light",
     md: md === "1" || md === "true",
     fontSize: fontSize || "96px",
-    images: getArray(images),
-    widths: getArray(widths),
-    heights: getArray(heights),
     sou: decodeURIComponent(sou || ""),
   };
   return parsedRequest;
-}
-
-function getArray(stringOrArray: string[] | string | undefined): string[] {
-  if (typeof stringOrArray === "undefined") {
-    return [];
-  } else if (Array.isArray(stringOrArray)) {
-    return stringOrArray;
-  } else {
-    return [stringOrArray];
-  }
 }
