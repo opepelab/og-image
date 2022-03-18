@@ -27,6 +27,7 @@ function getCss(theme: string, fontSize: string) {
     radial = "dimgray";
   }
   return `
+    @import url('https://fonts.googleapis.com/css2?family=Hind');
     @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
 
     @font-face {
@@ -92,7 +93,7 @@ function getCss(theme: string, fontSize: string) {
     }
     
     .heading {
-        font-family: "Noto Sans JP" 'Inter', sans-serif;
+        font-family: "Hind", "Noto Sans JP", sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: ${foreground};
