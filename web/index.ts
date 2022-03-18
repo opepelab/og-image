@@ -70,7 +70,7 @@ const TextInput = ({ value, oninput }: TextInputProps) => {
     H(
       "div",
       { className: "input-inner-wrapper" },
-      H("input", {
+      H("textarea", {
         type: "text",
         rows: 3,
         value,
@@ -233,7 +233,6 @@ const App = (_: any, state: AppState, setState: SetState) => {
           input: H(TextInput, {
             value: text,
             oninput: (val: string) => {
-              console.log("oninput " + val);
               setLoadingState({ text: val, overrideUrl: url });
             },
           }),
