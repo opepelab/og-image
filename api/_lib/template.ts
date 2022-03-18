@@ -46,32 +46,17 @@ function getCss(fontSize: string) {
         align-items: center;
         justify-content: center;
     }
-    code {
-        color: #D400FF;
-        font-family: 'Vera';
-        white-space: pre-wrap;
-        letter-spacing: -5px;
-    }
-    code:before, code:after {
-        content: '\`';
-    }
-    .logo-wrapper {
-        display: flex;
-        align-items: center;
-        align-content: center;
-        justify-content: center;
-        justify-items: center;
-    }
-    .logo {
-        margin: 0 75px;
-    }
+
     .sou {
         z-index: 0;
         position: absolute;
         width: 1200px;
-        height: 630px;
-        top: 0;
+        height: 675px;
         left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin:  auto;
     }
     .plus {
         color: #BBB;
