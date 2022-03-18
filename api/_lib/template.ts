@@ -101,8 +101,6 @@ function getCss(fontSize: string) {
         line-height: 1;
         padding-left: 50px;
         padding-right: 50px;
-        // width: 1000px;
-        // white-space: normal;
         left:  0%;
         right: 0%;
     }`;
