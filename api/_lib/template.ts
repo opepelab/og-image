@@ -114,7 +114,7 @@ function getCss(fontSize: string) {
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
-  const { text, theme, md, fontSize, sou } = parsedReq;
+  const { text, md, fontSize } = parsedReq;
   return `<!DOCTYPE html>
 <html>
     <head>
