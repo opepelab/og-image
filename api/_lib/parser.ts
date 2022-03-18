@@ -27,10 +27,10 @@ export function parseRequest(req: IncomingMessage) {
   }
 
   const parsedRequest: ParsedRequest = {
-    fileType: extension === "jpeg" ? extension : "png",
+    fileType: extension === `jpeg` ? extension : `png`,
     text: decodeURIComponent(text),
     theme: theme === "dark" ? "dark" : "light",
-    md: md === "1" || md === "true",
+    md: md === `1` || md === `true`,
     fontSize: fontSize || "96px",
     images: getArray(images),
     widths: getArray(widths),
