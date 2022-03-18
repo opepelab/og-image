@@ -5,6 +5,7 @@ const entityMap: { [key: string]: string } = {
   '"': "&quot;",
   "'": "&#39;",
   "/": "&#x2F;",
+  "`": "0x60",
 };
 
 export function sanitizeHtml(html: string) {
