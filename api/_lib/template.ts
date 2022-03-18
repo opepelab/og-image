@@ -99,8 +99,11 @@ function getCss(fontSize: string) {
         font-style: normal;
         color: white;
         line-height: 0.6;
-        left:  0%;
-        right: 0%;
+        inset: 0%;
+        margin: auto;
+        padding: 50px;
+        width: fit-content;
+        height: fit-content;
     }`;
 }
 
