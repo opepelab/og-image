@@ -127,7 +127,7 @@ export function getHtml(parsedReq: ParsedRequest) {
     </style>
     <body>
             <div>
-            <img src="https://og-image-sw.vercel.app/sou-ogp.png">
+            <img class="sou" src="https://og-image-sw.vercel.app/sou-ogp.png">
             <div class="heading">${emojify(
               md ? marked(text) : sanitizeHtml(text)
             )}
