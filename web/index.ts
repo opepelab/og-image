@@ -72,6 +72,7 @@ const TextInput = ({ value, oninput }: TextInputProps) => {
       { className: "input-inner-wrapper" },
       H("input", {
         type: "text",
+        rows: 3,
         value,
         oninput: (e: any) => oninput(e.target.value),
       })
