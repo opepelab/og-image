@@ -96,10 +96,10 @@ function getCss(fontSize: string) {
         font-style: normal;
         color: ${sanitizeHtml};
         line-height: 1.2;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        inset: 0%;
+        margin: auto;
+        width: fit-content;
+        height: fit-content;
     }`;
 }
 
