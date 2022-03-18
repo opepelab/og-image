@@ -77,6 +77,18 @@ function getCss(theme: string, fontSize: string) {
     .logo {
         margin: 0 75px;
     }
+    .sou {
+        display: block;
+        object-fit: cover;
+        position: absolute;
+        width: 1200px;
+        height: 630px;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin:  auto;
+    }
     .plus {
         color: #BBB;
         font-family: Times New Roman, Verdana;
@@ -102,19 +114,19 @@ function getCss(theme: string, fontSize: string) {
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
-  const { text, theme, md, fontSize, images, widths, heights } = parsedReq;
+  const { text, theme, md, fontSize, images, widths, heights, sou } = parsedReq;
   return `<!DOCTYPE html>
 <html>
-    <meta charset="utf-8">
-    <title>Generated Image</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <meta charset="utf-8">
+        <title>Generated Image</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
     <style>
         ${getCss(theme, fontSize)}
     </style>
-    <body>
+    <body class=${theme}>
         <div>
-            <div class="spacer">
-            <div class="logo-wrapper">
                 ${images
                   .map(
                     (img, i) =>
@@ -122,7 +134,8 @@ export function getHtml(parsedReq: ParsedRequest) {
                   )
                   .join("")}
             </div>
-            <div class="spacer">
+            <div>
+            ${sou ? `<img class="sou" src="${sanitizeHtml(sou)}">` : ""}
             <div class="heading">${emojify(
               md ? marked(text) : sanitizeHtml(text)
             )}

@@ -70,6 +70,27 @@ const TextInput = ({ value, oninput }: TextInputProps) => {
     H(
       "div",
       { className: "input-inner-wrapper" },
+      H("input", {
+        type: "text",
+        value,
+        oninput: (e: any) => oninput(e.target.value),
+      })
+    )
+  );
+};
+
+interface TextareaProps {
+  value: string;
+  oninput: (val: string) => void;
+}
+
+const Textarea = ({ value, oninput }: TextareaProps) => {
+  return H(
+    "div",
+    { className: "textarea-outer-wrapper" },
+    H(
+      "div",
+      { className: "textarea-inner-wrapper" },
       H("textarea", {
         type: "text",
         rows: 3,
@@ -230,7 +251,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
         }),
         H(Field, {
           label: "Text Input",
-          input: H(TextInput, {
+          input: H(Textarea, {
             value: text,
             oninput: (val: string) => {
               setLoadingState({ text: val, overrideUrl: url });
