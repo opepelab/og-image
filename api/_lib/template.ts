@@ -68,6 +68,7 @@ function getCss(fontSize: string) {
     .sou {
         z-index: 0;
         position: absolute;
+        background-image: url(../public/sou-ogp.png);
         width: 1200px;
         height: 675px;
         left: 0;
