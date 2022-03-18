@@ -68,13 +68,8 @@ function getCss(fontSize: string) {
     .sou {
         z-index: 0;
         position: absolute;
-        width: 1200px;
-        height: 675px;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin:  auto;
+        width: 100%;
+        height: 100%;
     }
     .plus {
         color: #BBB;
