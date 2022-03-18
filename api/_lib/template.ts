@@ -66,16 +66,12 @@ function getCss(fontSize: string) {
         margin: 0 75px;
     }
     .sou {
-        display: block;
-        object-fit: cover;
+        z-index: 0;
         position: absolute;
         width: 1200px;
         height: 630px;
-        left: 0;
-        right: 0;
         top: 0;
-        bottom: 0;
-        margin:  auto;
+        left: 0;
     }
     .plus {
         color: #BBB;
@@ -93,6 +89,8 @@ function getCss(fontSize: string) {
     }
     
     .heading {
+        z-index: 1;
+        position: absolute;
         font-family: "Hind", "Noto Sans JP", sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
@@ -102,7 +100,7 @@ function getCss(fontSize: string) {
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
-  const { text, theme, md, fontSize, images, widths, heights, sou } = parsedReq;
+  const { text, theme, md, fontSize, sou } = parsedReq;
   return `<!DOCTYPE html>
 <html>
     <head>
@@ -114,14 +112,6 @@ export function getHtml(parsedReq: ParsedRequest) {
         ${getCss(fontSize)}
     </style>
     <body class=${theme}>
-        <div>
-                ${images
-                  .map(
-                    (img, i) =>
-                      getPlusSign(i) + getImage(img, widths[i], heights[i])
-                  )
-                  .join("")}
-            </div>
             <div>
             ${sou ? `<img class="sou" src="${sanitizeHtml(sou)}">` : ""}
             <div class="heading">${emojify(
@@ -131,18 +121,4 @@ export function getHtml(parsedReq: ParsedRequest) {
         </div>
     </body>
 </html>`;
-}
-
-function getImage(src: string, width = "auto", height = "225") {
-  return `<img
-        class="logo"
-        alt="Generated Image"
-        src="${sanitizeHtml(src)}"
-        width="${sanitizeHtml(width)}"
-        height="${sanitizeHtml(height)}"
-    />`;
-}
-
-function getPlusSign(i: number) {
-  return i === 0 ? "" : '<div class="plus">+</div>';
 }
