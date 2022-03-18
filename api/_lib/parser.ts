@@ -1,6 +1,6 @@
 import { IncomingMessage } from "http";
 import { parse } from "url";
-import { ParsedRequest } from "./types";
+import { Theme, ParsedRequest } from "./types";
 
 export function parseRequest(req: IncomingMessage) {
   console.log("HTTP " + req.url);
@@ -32,10 +32,9 @@ export function parseRequest(req: IncomingMessage) {
   const parsedRequest: ParsedRequest = {
     fileType: extension === "jpeg" ? extension : "png",
     text: decodeURIComponent(text),
-    // theme: ["none", "dark", "light"].includes(theme || "dark")
-    //   ? (theme as Theme)
-    //   : "dark",
-    theme: theme === "dark" ? "dark" : "light",
+    theme: ["none", "dark", "light"].includes(theme || "dark")
+      ? (theme as Theme)
+      : "dark",
     md: md === "1" || md === "true",
     fontSize: fontSize || "96px",
     sou: decodeURIComponent(sou || ""),
