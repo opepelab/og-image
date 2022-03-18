@@ -1,11 +1,11 @@
 import { IncomingMessage } from "http";
 import { parse } from "url";
-import { Theme, ParsedRequest } from "./types";
+import { ParsedRequest } from "./types";
 
 export function parseRequest(req: IncomingMessage) {
   console.log("HTTP " + req.url);
   const { pathname, query } = parse(req.url || "/", true);
-  const { fontSize, images, widths, heights, theme, md, sou } = query || {};
+  const { fontSize, theme, md, sou } = query || {};
 
   if (Array.isArray(fontSize)) {
     throw new Error("Expected a single fontSize");
