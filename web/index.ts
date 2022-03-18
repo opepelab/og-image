@@ -188,7 +188,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
   const {
     fileType = "png",
     fontSize = "75px",
-    theme = "None",
+    theme = "none",
     md = true,
     text = "**Hello** World",
     sou = "https://og-image-sw.vercel.app/sou-ogp.png",
