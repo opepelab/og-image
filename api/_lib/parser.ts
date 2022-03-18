@@ -1,18 +1,16 @@
 import { IncomingMessage } from "http";
 import { parse } from "url";
-import { Theme, ParsedRequest } from "./types";
+import { ParsedRequest } from "./types";
 
 export function parseRequest(req: IncomingMessage) {
   console.log("HTTP " + req.url);
   const { pathname, query } = parse(req.url || "/", true);
-  const { fontSize, theme, md, sou } = query || {};
+  const { fontSize, md, sou } = query || {};
 
   if (Array.isArray(fontSize)) {
     throw new Error("Expected a single fontSize");
   }
-  if (Array.isArray(theme)) {
-    throw new Error("Expected a single theme");
-  }
+
   if (Array.isArray(sou)) {
     throw new Error("Expected a single sou");
   }
@@ -32,11 +30,8 @@ export function parseRequest(req: IncomingMessage) {
   const parsedRequest: ParsedRequest = {
     fileType: extension === "jpeg" ? extension : "png",
     text: decodeURIComponent(text),
-    theme: ["none", "dark", "light"].includes(theme || "dark")
-      ? (theme as Theme)
-      : "dark",
     md: md === "1" || md === "true",
-    fontSize: fontSize || "96px",
+    fontSize: fontSize || "",
     sou: decodeURIComponent(sou || ""),
   };
   return parsedRequest;

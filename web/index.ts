@@ -1,4 +1,4 @@
-import { ParsedRequest, Theme, FileType } from "../api/_lib/types";
+import { ParsedRequest, FileType } from "../api/_lib/types";
 const { H, R, copee } = window as any;
 let timeout = -1;
 
@@ -140,12 +140,6 @@ const Toast = ({ show, message }: ToastProps) => {
   );
 };
 
-const themeOptions: DropdownOption[] = [
-  { text: "None", value: "none" },
-  { text: "Light", value: "light" },
-  { text: "Dark", value: "dark" },
-];
-
 const fileTypeOptions: DropdownOption[] = [
   { text: "PNG", value: "png" },
   { text: "JPEG", value: "jpeg" },
@@ -188,7 +182,6 @@ const App = (_: any, state: AppState, setState: SetState) => {
   const {
     fileType = "png",
     fontSize = "75px",
-    theme = "none",
     md = true,
     text = "**Hello** World",
     sou = "https://og-image-sw.vercel.app/sou-ogp.png",
@@ -201,7 +194,6 @@ const App = (_: any, state: AppState, setState: SetState) => {
   const mdValue = md ? "1" : "0";
   const url = new URL(window.location.origin);
   url.pathname = `${encodeURIComponent(text)}.${fileType}`;
-  url.searchParams.append("theme", theme);
   url.searchParams.append("md", mdValue);
   url.searchParams.append("fontSize", fontSize);
   url.searchParams.append("sou", sou);
@@ -214,16 +206,6 @@ const App = (_: any, state: AppState, setState: SetState) => {
       { className: "pull-left" },
       H(
         "div",
-        H(Field, {
-          label: "Theme",
-          input: H(Dropdown, {
-            options: themeOptions,
-            value: theme,
-            onchange: (val: Theme) => {
-              setLoadingState({ theme: val });
-            },
-          }),
-        }),
         H(Field, {
           label: "File Type",
           input: H(Dropdown, {
