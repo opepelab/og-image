@@ -68,7 +68,6 @@ function getCss(fontSize: string) {
     .sou {
         z-index: 0;
         position: absolute;
-        background-image: url(../public/sou-ogp.png);
         width: 1200px;
         height: 675px;
         left: 0;
@@ -126,9 +125,9 @@ export function getHtml(parsedReq: ParsedRequest) {
     <style>
         ${getCss(fontSize)}
     </style>
-    <body class=${theme}>
+    <body>
             <div>
-            ${sou ? `<img class="sou" src="${sanitizeHtml(sou)}">` : ""}
+            <img src="https://og-image-sw.vercel.app/sou-ogp.png">
             <div class="heading">${emojify(
               md ? marked(text) : sanitizeHtml(text)
             )}
