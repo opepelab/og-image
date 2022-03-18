@@ -68,8 +68,13 @@ function getCss(fontSize: string) {
     .sou {
         z-index: 0;
         position: absolute;
-        width: 100%;
-        height: 100%;
+        width: 1200px;
+        height: 630px;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin:  auto;
     }
     .plus {
         color: #BBB;
@@ -92,7 +97,7 @@ function getCss(fontSize: string) {
         font-family: "Hind", "Noto Sans JP", sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
-        color: black;
+        color: white;
         line-height: normal;
         margin: 0;
         text-align: center;
