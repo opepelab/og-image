@@ -227,7 +227,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
     widths = [],
     heights = [],
     showToast = false,
-    messageToast = "",
+    messageToast = ``,
     loading = true,
     selectedImageIndex = 0,
     overrideUrl = null,
