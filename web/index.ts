@@ -120,6 +120,7 @@ const Toast = ({ show, message }: ToastProps) => {
 };
 
 const themeOptions: DropdownOption[] = [
+  { text: "None", value: "none" },
   { text: "Light", value: "light" },
   { text: "Dark", value: "dark" },
 ];
@@ -147,6 +148,7 @@ interface AppState extends ParsedRequest {
   widths: string[];
   heights: string[];
   overrideUrl: URL | null;
+  sou: string;
 }
 
 type SetState = (state: Partial<AppState>) => void;
@@ -166,9 +168,10 @@ const App = (_: any, state: AppState, setState: SetState) => {
   const {
     fileType = "png",
     fontSize = "75px",
-    theme = "black",
+    theme = "none",
     md = true,
     text = "**Hello** World",
+    sou = "https://og-image-sw.vercel.app/sou-ogp.png",
     showToast = false,
     messageToast = "",
     loading = true,
@@ -181,6 +184,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
   url.searchParams.append("theme", theme);
   url.searchParams.append("md", mdValue);
   url.searchParams.append("fontSize", fontSize);
+  url.searchParams.append("sou", sou);
 
   return H(
     "div",
@@ -231,6 +235,15 @@ const App = (_: any, state: AppState, setState: SetState) => {
             oninput: (val: string) => {
               console.log("oninput " + val);
               setLoadingState({ text: val, overrideUrl: url });
+            },
+          }),
+        }),
+        H(Field, {
+          label: "Overlay Image",
+          input: H(TextInput, {
+            value: sou,
+            oninput: (val: string) => {
+              setLoadingState({ sou: val, overrideUrl: url });
             },
           }),
         })
