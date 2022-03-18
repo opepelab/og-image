@@ -16,16 +16,7 @@ const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString(
   "base64"
 );
 
-function getCss(theme: string, fontSize: string) {
-  let background = "white";
-  let foreground = "black";
-  let radial = "lightgray";
-
-  if (theme === "dark") {
-    background = "black";
-    foreground = "white";
-    radial = "dimgray";
-  }
+function getCss(fontSize: string) {
   return `
     @import url('https://fonts.googleapis.com/css2?family=Hind');
     @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP');
@@ -49,9 +40,6 @@ function getCss(theme: string, fontSize: string) {
         src: url(data:font/woff2;charset=utf-8;base64,${mono})  format("woff2");
       }
     body {
-        background: ${background};
-        background-image: radial-gradient(circle at 25px 25px, ${radial} 2%, transparent 0%), radial-gradient(circle at 75px 75px, ${radial} 2%, transparent 0%);
-        background-size: 100px 100px;
         height: 100vh;
         display: flex;
         text-align: center;
@@ -108,8 +96,8 @@ function getCss(theme: string, fontSize: string) {
         font-family: "Hind", "Noto Sans JP", sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
-        color: ${foreground};
-        line-height: 1.8;
+        color: ${sanitizeHtml};
+        line-height: 1.2;
     }`;
 }
 
@@ -123,7 +111,7 @@ export function getHtml(parsedReq: ParsedRequest) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <style>
-        ${getCss(theme, fontSize)}
+        ${getCss(fontSize)}
     </style>
     <body class=${theme}>
         <div>

@@ -169,7 +169,6 @@ interface AppState extends ParsedRequest {
   widths: string[];
   heights: string[];
   overrideUrl: URL | null;
-  sou: string;
 }
 
 type SetState = (state: Partial<AppState>) => void;
