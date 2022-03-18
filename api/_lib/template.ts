@@ -98,9 +98,9 @@ function getCss(fontSize: string) {
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: white;
-        line-height: normal;
-        margin: 0;
-        text-align: center;
+        line-height: 0.6;
+        left:  0%;
+        right: 0%;
     }`;
 }
 
