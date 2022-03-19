@@ -104,10 +104,7 @@ function getCss(fontSize: string) {
         font-style: normal;
         color: white;
         line-height: 1;
-        padding-left: 50px;
-        padding-right: 50px;
-        left:  0%;
-        right: 0%;
+        padding: 50px;
     }`;
 }
 
