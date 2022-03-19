@@ -90,6 +90,11 @@ function getCss(fontSize: string) {
         margin: 0 .05em 0 .1em;
         vertical-align: -0.1em;
     }
+    .Flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     
     .heading {
         z-index: 1;
@@ -119,7 +124,7 @@ export function getHtml(parsedReq: ParsedRequest) {
         ${getCss(fontSize)}
     </style>
     <body>
-            <div>
+            <div class="Flex">
             <img class="sou" src="https://og-image-sw.vercel.app/sou-ogp.png">
             <div class="heading">${emojify(
               md ? marked(text) : sanitizeHtml(text)
