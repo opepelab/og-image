@@ -18,7 +18,7 @@ const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString(
 
 function getCss(fontSize: string) {
   return `
-
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP');
     @font-face {
         font-family: 'Inter';
         font-style:  normal;
@@ -98,7 +98,7 @@ function getCss(fontSize: string) {
         z-index: 1;
         position: absolute;
         font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
-        Helvetica Neue, sans-serif;
+        Helvetica Neue, "Noto Sans JP", sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: white;
