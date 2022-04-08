@@ -101,7 +101,8 @@ function getCss(fontSize: string) {
         Helvetica Neue, "Noto Sans JP", sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
-        color: rgb(13 148 136);
+        color: rgb(94 234 212);
+        // rgb(13 148 136)
         line-height: 1;
         padding: 50px;
     }`;
