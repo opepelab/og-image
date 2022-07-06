@@ -22,7 +22,7 @@ export default async function handler(
     const file = await getScreenshot(html, fileType, isDev);
     res.statusCode = 200;
     res.setHeader("Content-Type", `image/${fileType}`);
-    res.setHeader("Cache-Control", `private`);
+    res.setHeader("Cache-Control", `no-cache`);
     res.end(file);
   } catch (e) {
     res.statusCode = 500;
